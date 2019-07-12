@@ -1,0 +1,36 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongIngress
+metadata:
+  name: {{.Name}}
+  namespace: {{.NameSpace}}
+proxy:
+  path: {{.BasePath}}
+  connect_timeout: {{.ConnectTimeout}}
+  retries: {{.Retries}}
+  read_timeout: {{.ReadTimeout}}
+  write_timeout: {{.WriteTimeout}}
+route:
+  protocols:{{range .RouteProtocols}}
+    - {{.}} {{end}}
+  methods: {{range .RouteMethods}}
+    - {{.}} {{end}}
+  strip_path: false
+  preserve_host: true
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{.Name}}-ingress
+  namespace: {{.NameSpace}}
+  annotations:
+    kubernetes.io/ingress.class: "{{if .IsolationEnabled}}{{.NameSpace}}{{else}}kong{{end}}"
+spec:
+  rules:
+  - host: {{.Host}}
+    http:
+      paths: {{range .Paths}}
+      - path: {{.URI}}
+        backend:
+          serviceName: {{.ServiceName}}
+          servicePort: {{.ServicePort}}
+      {{end}}
