@@ -1,8 +1,8 @@
 # API GATEWAY CLI
 
-The API Gateway CLI Toolbelt is a vendor agnostic tool that manage, provision any API Gateway platform including Kong, AWS API GW and Akamai.
+The API Gateway CLI is a vendor agnostic tool that manage, provision any API Gateway platform including Kong, AWS API GW and Akamai.
 
-The main motivations behind building such a tool are :
+The main motivations behind building this :
 
 - Support of your API First lifecycle
 - Reduce [LockInCost](https://martinfowler.com/bliki/LockInCost.html) to zero
@@ -34,15 +34,15 @@ Define your API Gateway configuration
 
 ```
 namespace: mobile
-basepath: / #retrieve from swagger
+basepath: /
 connect_timeout: 10000
 read_timeout: 5000
 write_timeout: 6000
 retries: 3
-protocols: #retrieve from swagger
+protocols: 
   - http
   - https
-methods: #retrieve from swagger
+methods:
   - POST
   - GET
 host: mobile.api.3stripes.io
