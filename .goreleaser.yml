@@ -1,5 +1,6 @@
 # This is an example goreleaser.yaml file with some sane defaults.
 # Make sure to check the documentation at http://goreleaser.com
+project_name: API Gateway CLI
 before:
   hooks:
     # you may remove this if you don't use vgo
@@ -18,11 +19,14 @@ archives:
     386: i386
     amd64: x86_64
 
+  format: zip
+
   files:
     - template.yaml
     - README.md
     - swagger.yaml
     - api-blueprint.yaml
+
 checksum:
   name_template: 'checksums.txt'
 snapshot:
