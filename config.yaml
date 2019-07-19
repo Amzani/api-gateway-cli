@@ -1,0 +1,15 @@
+_version: "0.1"
+
+
+
+host: 'product.api.3stripes.io'
+services:
+  - name: test
+    url: http://test:8001
+    endpoint: '*'
+  - name: product
+    url: http://product:8005
+    endpoint: '/products'
+provider:
+  kongingress:
+    namespace: mobile
