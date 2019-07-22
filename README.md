@@ -1,6 +1,6 @@
 # API GATEWAY CLI
 
-The API Gateway CLI is a vendor agnostic tool that manage, provision any API Gateway platform including Kong, AWS API GW and Akamai.
+The API Gateway CLI is a vendor agnostic tool that manage, provision any API Gateway platform including Kong, AWS API GW, Akamai and Tyk.
 
 The main motivations behind building this :
 
@@ -20,7 +20,8 @@ The main motivations behind building this :
 - [x] Kong (Ingress)
 - [ ] Kong
 - [ ] AWS API Gateway
-- [ ] Akamai 
+- [ ] Akamai
+- [ ] Tyk
 
 ## Get started (Kong Ingress)
 
